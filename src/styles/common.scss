@@ -1,0 +1,10 @@
+@mixin layout-container {
+  width: 100vw;
+  height: 100vh;
+}
+@mixin layout {
+  height: 64px;
+  line-height: 64px;
+  padding: 0 24px;
+  color: #fff;
+}
