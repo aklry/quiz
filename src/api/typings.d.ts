@@ -99,7 +99,7 @@ declare namespace API {
 
   type BaseResponseLoginUserVO_ = {
     code?: number;
-    data?: LoginUserVO;
+    data: LoginUserVO | null;
     message?: string;
   };
 

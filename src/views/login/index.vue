@@ -1,8 +1,8 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="home">
-    <h1>Welcome to Home Page</h1>
+  <div class="login-container">
+    <h1>Login</h1>
   </div>
 </template>
 

@@ -4,7 +4,7 @@ import store from '@/stores'
 
 export const useSettingStoreHooks = defineStore('setting', {
   state: (): ISettingState => ({
-    selectedMenu: ['/home']
+    selectedMenu: ['/']
   }),
   actions: {
     setSelectedMenu(menu: string[]) {
@@ -13,7 +13,7 @@ export const useSettingStoreHooks = defineStore('setting', {
   },
   persist: {
     key: 'setting',
-    storage: localStorage,
+    storage: sessionStorage,
     paths: ['selectedMenu']
   }
 })

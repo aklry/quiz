@@ -79,6 +79,8 @@
     "watch": true,
     "watchEffect": true,
     "watchPostEffect": true,
-    "watchSyncEffect": true
+    "watchSyncEffect": true,
+    "ACCESS_ENUM2": true,
+    "AUTH_ENUM2": true
   }
 }

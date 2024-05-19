@@ -1,5 +1,6 @@
 import type { RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/index.vue'
+import NotFound from '@/views/error-page/not-found.vue'
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -25,7 +26,22 @@ export const routes: Array<RouteRecordRaw> = [
           title: '关于',
           isMenu: true
         }
-      }
+      },
     ]
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('@/views/login/index.vue'),
+  },
+  {
+    path: '/:pathMatch(.*)',
+    name: 'NotFound',
+    component: NotFound
+  },
+  {
+    path: '/noAuth',
+    name: 'NoAuth',
+    component: () => import('@/views/error-page/no-auth.vue')
   }
 ]

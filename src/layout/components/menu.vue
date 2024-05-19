@@ -1,11 +1,23 @@
 <script setup lang="ts">
 import { useSettingStore } from '@/stores/modules/setting/setting'
+import { useUserStore } from '@/stores/modules/user/user'
+import { checkAuth } from '@/permission/checkPermission'
 
 const router = useRouter()
 const settingStore = useSettingStore()
-const { selectedMenu } = storeToRefs(settingStore)
+const userStore = useUserStore()
 const allRoutes = router.options.routes[0].children
-const menuRoutes = allRoutes?.filter((route) => route.meta?.isMenu)
+const loginUser = userStore.user as API.LoginUserVO
+const { selectedMenu } = storeToRefs(settingStore)
+const menuRoutes = computed(() => {
+  return allRoutes?.filter((route) => {
+    console.log(checkAuth(loginUser, route.meta?.auth as string))
+    if (!checkAuth(loginUser, route.meta?.auth as string)) {
+      return false
+    }
+    return route.meta?.isMenu
+  })
+})
 
 const handleMenuClick = (key: string) => {
   router.push({
