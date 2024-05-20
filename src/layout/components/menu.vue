@@ -11,7 +11,6 @@ const loginUser = userStore.user as API.LoginUserVO
 const { selectedMenu } = storeToRefs(settingStore)
 const menuRoutes = computed(() => {
   return allRoutes?.filter((route) => {
-    console.log(checkAuth(loginUser, route.meta?.auth as string))
     if (!checkAuth(loginUser, route.meta?.auth as string)) {
       return false
     }

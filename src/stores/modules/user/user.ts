@@ -20,6 +20,7 @@ const useUserStoreHooks = defineStore('user', {
       const { data: user } = await userLoginUsingPost(data)
       if (data) {
         this.setUser(user)
+        return 'ok'
       } else {
         this.setUser({ userRole: AUTH_ENUM.NOT_LOGIN })
       }

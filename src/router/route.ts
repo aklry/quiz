@@ -30,9 +30,16 @@ export const routes: Array<RouteRecordRaw> = [
     ]
   },
   {
-    path: '/login',
-    name: 'Login',
-    component: () => import('@/views/login/index.vue'),
+    path: '/user',
+    name: 'User',
+    component: () => import('@/layout/UserLayout.vue'),
+    children: [
+      {
+        path: '/user/login',
+        name: 'Login',
+        component: () => import('@/views/login/index.vue'),
+      }
+    ]
   },
   {
     path: '/:pathMatch(.*)',
