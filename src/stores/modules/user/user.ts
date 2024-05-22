@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import store from '@/stores'
 import type { IUserState } from './type'
-import { getLoginUserUsingGet, userLoginUsingPost } from '@/api/userController'
+import { getLoginUserUsingGet, userLoginUsingPost, userLogoutUsingPost } from '@/api/userController'
 import AUTH_ENUM from '@/permission/permission'
 
 const useUserStoreHooks = defineStore('user', {
@@ -17,13 +17,18 @@ const useUserStoreHooks = defineStore('user', {
       this.setUser(data)
     },
     async login(data: API.UserLoginRequest) {
-      const { data: user } = await userLoginUsingPost(data)
-      if (data) {
-        this.setUser(user)
+      const res = await userLoginUsingPost(data)
+      if (res.code === 0) {
+        this.setUser(res.data)
         return 'ok'
       } else {
         this.setUser({ userRole: AUTH_ENUM.NOT_LOGIN })
+        return res.message
       }
+    },
+    async logout() {
+      await userLogoutUsingPost()
+      this.setUser(null)
     }
   }
 })

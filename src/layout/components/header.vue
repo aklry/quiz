@@ -8,6 +8,9 @@ const router = useRouter()
 const handleLogin = () => {
   router.push({ name: 'Login' })
 }
+const handleLogout = () => {
+  userStore.logout()
+}
 </script>
 
 <template>
@@ -27,7 +30,7 @@ const handleLogin = () => {
             <icon-down />
           </a-button>
           <template #content>
-            <a-doption>退出登录</a-doption>
+            <a-doption @click="handleLogout">退出登录</a-doption>
           </template>
         </a-dropdown>
       </template>

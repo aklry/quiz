@@ -2,7 +2,7 @@
 
 <template>
   <div class="home">
-    <picture-upload biz="user_avatar" />
+    <h1>Welcome to Home Page</h1>
   </div>
 </template>
 

@@ -17,16 +17,7 @@ export const routes: Array<RouteRecordRaw> = [
           title: '主页',
           isMenu: true
         }
-      },
-      {
-        path: '/about',
-        name: 'About',
-        component: () => import('@/views/about/index.vue'),
-        meta: {
-          title: '关于',
-          isMenu: true
-        }
-      },
+      }
     ]
   },
   {
@@ -37,7 +28,12 @@ export const routes: Array<RouteRecordRaw> = [
       {
         path: '/user/login',
         name: 'Login',
-        component: () => import('@/views/login/index.vue'),
+        component: () => import('@/views/user/login/index.vue')
+      },
+      {
+        path: '/user/register',
+        name: 'Register',
+        component: () => import('@/views/user/register/index.vue')
       }
     ]
   },
