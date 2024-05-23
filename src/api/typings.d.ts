@@ -391,7 +391,7 @@ declare namespace API {
     records?: User[];
     searchCount?: boolean;
     size?: number;
-    total?: number;
+    total?: string;
   };
 
   type PageUserAnswer_ = {

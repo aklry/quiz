@@ -1,6 +1,7 @@
 import type { RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/index.vue'
 import NotFound from '@/views/error-page/not-found.vue'
+import AUTH_ENUM from '@/permission/permission'
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -16,6 +17,16 @@ export const routes: Array<RouteRecordRaw> = [
         meta: {
           title: '主页',
           isMenu: true
+        }
+      },
+      {
+        path: '/admin/user',
+        component: () => import('@/views/admin/user/index.vue'),
+        name: 'AdminUser',
+        meta: {
+          title: '用户管理',
+          isMenu: true,
+          auth: AUTH_ENUM.ADMIN
         }
       }
     ]
