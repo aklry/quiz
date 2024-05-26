@@ -3,3 +3,7 @@ export interface IPictureUploadProps {
   onChange?: (url: string) => void
   value?: string
 }
+
+export interface IAppCardProps {
+  app: API.AppVO
+}

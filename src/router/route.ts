@@ -20,6 +20,50 @@ export const routes: Array<RouteRecordRaw> = [
         }
       },
       {
+        path: '/app/detail/:appId',
+        name: 'AppDetail',
+        component: () => import('@/views/app-detail/index.vue'),
+        meta: {
+          isMenu: false
+        },
+        props: true
+      },
+      {
+        path: '/add/app',
+        name: 'AddApp',
+        component: () => import('@/views/add-app/index.vue'),
+        meta: {
+          isMenu: false
+        }
+      },
+      {
+        path: '/add/app/:appId',
+        name: 'EditApp',
+        component: () => import('@/views/add-app/index.vue'),
+        props: true,
+        meta: {
+          isMenu: false
+        }
+      },
+      {
+        path: '/add/question/:appId',
+        name: 'AddQuestion',
+        component: () => import('@/views/add-question/index.vue'),
+        props: true,
+        meta: {
+          isMenu: false
+        }
+      },
+      {
+        path: '/add/scoring-result/:appId',
+        name: 'AddScoringResult',
+        component: () => import('@/views/add-scoring-result/index.vue'),
+        props: true,
+        meta: {
+          isMenu: false
+        }
+      },
+      {
         path: '/admin/user',
         component: () => import('@/views/admin/user/index.vue'),
         name: 'AdminUser',

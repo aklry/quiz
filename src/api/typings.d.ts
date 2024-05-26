@@ -287,7 +287,7 @@ declare namespace API {
     records?: App[];
     searchCount?: boolean;
     size?: number;
-    total?: number;
+    total?: string;
   };
 
   type PageAppVO_ = {
@@ -300,7 +300,7 @@ declare namespace API {
     records?: AppVO[];
     searchCount?: boolean;
     size?: number;
-    total?: number;
+    total?: string;
   };
 
   type PagePost_ = {

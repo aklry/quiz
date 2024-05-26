@@ -29,6 +29,7 @@ const useUserStoreHooks = defineStore('user', {
     async logout() {
       await userLogoutUsingPost()
       this.setUser(null)
+      await this.fetchLoginUser()
     }
   }
 })

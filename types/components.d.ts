@@ -24,6 +24,7 @@ declare module 'vue' {
     ALink: typeof import('@arco-design/web-vue')['Link']
     AMenu: typeof import('@arco-design/web-vue')['Menu']
     AMenuItem: typeof import('@arco-design/web-vue')['MenuItem']
+    AppCard: typeof import('./../src/components/AppCard.vue')['default']
     AProgress: typeof import('@arco-design/web-vue')['Progress']
     ASpace: typeof import('@arco-design/web-vue')['Space']
     AUpload: typeof import('@arco-design/web-vue')['Upload']

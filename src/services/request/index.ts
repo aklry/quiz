@@ -23,8 +23,7 @@ class RYRequest {
         // 不是获取用户信息的请求，或者用户目前不是已经在登录页面，则跳转到登录页面
         if (res.data.code === 40100) {
           if (
-            !window.location.pathname.includes('/user/login') &&
-            !res.request.responseURL.includes('/user/get/login')
+            !window.location.pathname.includes('/user/login')
           ) {
             window.location.href = `/user/login?redirect=${window.location.pathname}`
           }
