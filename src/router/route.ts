@@ -33,17 +33,15 @@ export const routes: Array<RouteRecordRaw> = [
         name: 'AddApp',
         component: () => import('@/views/add-app/index.vue'),
         meta: {
-          isMenu: false
+          isMenu: true,
+          title: '创建应用'
         }
       },
       {
         path: '/add/app/:appId',
         name: 'EditApp',
         component: () => import('@/views/add-app/index.vue'),
-        props: true,
-        meta: {
-          isMenu: false
-        }
+        props: true
       },
       {
         path: '/add/question/:appId',

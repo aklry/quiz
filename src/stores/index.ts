@@ -5,4 +5,3 @@ const store = createPinia()
 store.use(piniaPluginPersistedstate)
 
 export default store
-

@@ -52,10 +52,7 @@ export async function getAppVoByIdUsingGet(
 ) {
   return ryRequest.request<API.BaseResponseAppVO_>({
     method: 'GET',
-    url: '/app/get/vo',
-    params: {
-      ...params
-    },
+    url: `/app/get/vo/${params.id}`,
     ...(options || {})
   })
 }

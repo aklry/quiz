@@ -1,3 +1,5 @@
+import type { TableColumnData } from '@arco-design/web-vue'
+
 export interface IPictureUploadProps {
   biz: string
   onChange?: (url: string) => void
@@ -6,4 +8,9 @@ export interface IPictureUploadProps {
 
 export interface IAppCardProps {
   app: API.AppVO
+}
+
+export interface ICommonTableProps<T> {
+  columns: TableColumnData[]
+  data: T[]
 }

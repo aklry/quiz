@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { ISettingState} from './type'
+import type { ISettingState } from './type'
 import store from '@/stores'
 
 export const useSettingStoreHooks = defineStore('setting', {
@@ -18,6 +18,6 @@ export const useSettingStoreHooks = defineStore('setting', {
   }
 })
 
-export function  useSettingStore() {
+export function useSettingStore() {
   return useSettingStoreHooks(store)
 }

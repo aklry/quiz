@@ -6,7 +6,10 @@ import AUTH_ENUM from './permission'
  * @param auth 需要有的权限
  * @return 有无权限
  */
-export const checkAuth = (loginUser: API.LoginUserVO, auth: string = AUTH_ENUM.NOT_LOGIN): boolean => {
+export const checkAuth = (
+  loginUser: API.LoginUserVO,
+  auth: string = AUTH_ENUM.NOT_LOGIN
+): boolean => {
   const loginUserAuth = loginUser?.userRole ?? AUTH_ENUM.NOT_LOGIN
   if (auth === AUTH_ENUM.NOT_LOGIN) {
     return true

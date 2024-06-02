@@ -39,11 +39,7 @@ const handleUpload = async (option: RequestOption) => {
 
 <template>
   <a-space direction="vertical" :style="{ width: '100%' }">
-    <a-upload
-      :fileList="file ? [file] : []"
-      :show-file-list="false"
-      :custom-request="handleUpload"
-    >
+    <a-upload :fileList="file ? [file] : []" :show-file-list="false" :custom-request="handleUpload">
       <template #upload-button>
         <div
           :class="`arco-upload-list-item${

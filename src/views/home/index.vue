@@ -5,7 +5,7 @@ import { listAppVoByPageUsingPost } from '@/api/appController'
 const dataSource = ref<API.AppVO[]>([])
 const initPaginationProps = {
   current: 1,
-  pageSize: 10
+  pageSize: 6
 }
 const paginationProps = ref<API.AppQueryRequest>({
   ...initPaginationProps

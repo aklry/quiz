@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Header from './components/header.vue';
+import Header from './components/header.vue'
 </script>
 
 <template>
@@ -12,7 +12,9 @@ import Header from './components/header.vue';
         <router-view />
       </a-layout-content>
       <a-layout-footer class="footer text-center">
-        <a-link href="http://doc.aklry.com" :hoverable="false" target="_blank">Copyright © 2024 aklry</a-link>
+        <a-link href="http://doc.aklry.com" :hoverable="false" target="_blank"
+          >Copyright © 2024 aklry</a-link
+        >
       </a-layout-footer>
     </a-layout>
   </div>
@@ -35,6 +37,7 @@ import Header from './components/header.vue';
 
 .content {
   padding: 24px;
+  overflow: scroll;
 }
 
 .footer {

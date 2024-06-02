@@ -4,10 +4,7 @@ import image from '@/assets/404.png'
 
 <template>
   <div class="not-found-container">
-    <a-empty
-      description="The page you are looking for does not exist."
-      :img-src="image"
-    />
+    <a-empty description="The page you are looking for does not exist." :img-src="image" />
   </div>
 </template>
 

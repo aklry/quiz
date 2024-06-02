@@ -1,4 +1,4 @@
-const AUTH_ENUM =  {
+const AUTH_ENUM = {
   NOT_LOGIN: 'not_login',
   USER: 'user',
   ADMIN: 'admin'

@@ -10,15 +10,28 @@ const props = withDefaults(defineProps<{ appId: string }>(), {
 const detail = ref<API.AppVO>({})
 const userStore = useUserStore()
 const { user } = storeToRefs(userStore)
+const router = useRouter()
 onMounted(async () => {
   const result = await getAppVoByIdUsingGet({
-    id: Number(props.appId)
+    id: props.appId
   })
   if (result.code === 0 && result.data) {
     detail.value = result.data
   }
 })
 const isMyApp = computed(() => user.value && detail.value && user.value.id === detail.value.userId)
+
+const handleEditApp = () => {
+  // 跳转到编辑页面
+  router.push({ name: 'EditApp', params: { appId: props.appId } })
+}
+const handleSetQuestion = () => {
+  // 跳转到设置题目页面
+  router.push({ name: 'AddQuestion', params: { appId: props.appId } })
+}
+const handleSetScore = () => {
+  router.push({ name: 'AddScoringResult', params: { appId: props.appId } })
+}
 </script>
 
 <template>
@@ -48,9 +61,9 @@ const isMyApp = computed(() => user.value && detail.value && user.value.id === d
           <a-space>
             <a-button type="primary">开始答题</a-button>
             <a-button>分享应用</a-button>
-            <a-button v-if="isMyApp">设置题目</a-button>
-            <a-button v-if="isMyApp">设置评分</a-button>
-            <a-button v-if="isMyApp">修改应用</a-button>
+            <a-button v-if="isMyApp" @click="handleSetQuestion">设置题目</a-button>
+            <a-button v-if="isMyApp" @click="handleSetScore">设置评分</a-button>
+            <a-button v-if="isMyApp" @click="handleEditApp">修改应用</a-button>
           </a-space>
         </a-col>
         <a-col flex="300px">
