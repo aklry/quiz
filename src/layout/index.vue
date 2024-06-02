@@ -37,7 +37,7 @@ import Header from './components/header.vue'
 
 .content {
   padding: 24px;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .footer {

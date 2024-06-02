@@ -1,4 +1,4 @@
-import type { TableColumnData } from '@arco-design/web-vue'
+import type { TableColumnData, PaginationProps } from '@arco-design/web-vue'
 
 export interface IPictureUploadProps {
   biz: string
@@ -10,7 +10,8 @@ export interface IAppCardProps {
   app: API.AppVO
 }
 
-export interface ICommonTableProps<T> {
+export interface ICommonTableProps {
   columns: TableColumnData[]
-  data: T[]
+  data: any[]
+  paginationProps: boolean | PaginationProps
 }

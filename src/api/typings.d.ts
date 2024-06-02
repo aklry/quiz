@@ -378,7 +378,7 @@ declare namespace API {
     records?: ScoringResultVO[]
     searchCount?: boolean
     size?: number
-    total?: number
+    total?: string
   }
 
   type PageUser_ = {
