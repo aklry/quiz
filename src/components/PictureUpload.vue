@@ -47,7 +47,7 @@ const handleUpload = async (option: RequestOption) => {
           }`"
         >
           <div class="arco-upload-list-picture custom-upload-avatar" v-if="file && file.url">
-            <img :src="file.url" />
+            <img :src="file.url" alt="" />
             <div class="arco-upload-list-picture-mask">
               <IconEdit />
             </div>

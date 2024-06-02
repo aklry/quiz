@@ -24,7 +24,7 @@ const toDetail = () => {
             overflow: 'hidden'
           }"
         >
-          <img :style="{ width: '100%', height: '100%' }" :src="app.appIcon" />
+          <img :style="{ width: '100%', height: '100%' }" :src="app.appIcon" alt="" />
         </div>
       </template>
       <a-card-meta :title="app.appName" :description="app.appDesc">
