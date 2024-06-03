@@ -224,7 +224,7 @@ declare namespace API {
   }
 
   type DeleteRequest = {
-    id?: number
+    id?: string
   }
 
   type getAppVOByIdUsingGETParams = {
@@ -596,7 +596,7 @@ declare namespace API {
   }
 
   type ScoringResultAddRequest = {
-    appId?: number
+    appId?: string
     resultDesc?: string
     resultName?: string
     resultPicture?: string
@@ -631,7 +631,7 @@ declare namespace API {
   }
 
   type ScoringResultUpdateRequest = {
-    id?: number
+    id?: string
     resultDesc?: string
     resultName?: string
     resultPicture?: string
@@ -640,9 +640,9 @@ declare namespace API {
   }
 
   type ScoringResultVO = {
-    appId?: number
+    appId?: string
     createTime?: string
-    id?: number
+    id?: string
     resultDesc?: string
     resultName?: string
     resultPicture?: string

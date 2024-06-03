@@ -33,5 +33,9 @@ export default [
   {
     title: '用户id',
     dataIndex: 'userId'
+  },
+  {
+    title: '操作',
+    slotName: 'operation'
   }
 ] as TableColumnData[]

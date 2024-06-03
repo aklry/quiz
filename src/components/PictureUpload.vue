@@ -7,13 +7,20 @@ const file = ref()
 const props = withDefaults(defineProps<IPictureUploadProps>(), {
   value: () => ''
 })
-if (props.value) {
-  file.value = {
-    url: props.value,
-    percent: 100,
-    status: 'done'
+watch(
+  () => props.value,
+  (value) => {
+    if (value) {
+      file.value = {
+        url: props.value,
+        percent: 100,
+        status: 'done'
+      }
+    } else {
+      file.value = null
+    }
   }
-}
+)
 const handleUpload = async (option: RequestOption) => {
   const { onSuccess, fileItem } = option
   const res = await uploadFileUsingPost(
