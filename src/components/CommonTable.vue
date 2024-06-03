@@ -21,7 +21,7 @@ const onChange = (current: number) => {
       <template #columns>
         <template v-for="(item, index) in columns" :key="index">
           <template v-if="item.slotName">
-            <a-table-column>
+            <a-table-column :title="item.title as string">
               <template #cell="{ record }">
                 <slot :name="item.slotName" :record="record" />
               </template>

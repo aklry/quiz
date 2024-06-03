@@ -15,7 +15,7 @@ const props = withDefaults(
 const tableData = ref<API.ScoringResultVO[]>([])
 const initPaginationProps = {
   current: 1,
-  pageSize: 5
+  pageSize: 10
 }
 const total = ref(0)
 const paginationProps = ref(initPaginationProps)

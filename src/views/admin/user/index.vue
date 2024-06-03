@@ -2,6 +2,7 @@
 import { listUserByPageUsingPost, deleteUserUsingPost } from '@/api/userController'
 import { Message } from '@arco-design/web-vue'
 import { formatDate } from '@/utils'
+import columns from './config'
 
 const searchParams = ref<API.UserQueryRequest>({
   current: 1,
@@ -64,43 +65,27 @@ watchEffect(() => {
         <a-button type="primary" @click="handleSearch">搜索</a-button>
       </a-form-item>
     </a-form>
-    <a-table
+    <common-table
       :data="tableData"
-      :pagination="{
+      :columns="columns"
+      :pagination-props="{
         current: searchParams.current || 1,
         pageSize: searchParams.pageSize || 10,
-        total,
-        showTotal: true
+        total
       }"
       @page-change="handlePageChange"
     >
-      <template #columns>
-        <a-table-column title="id" data-index="id" :width="200" />
-        <a-table-column title="账号" data-index="userAccount" />
-        <a-table-column title="用户名">
-          <template #cell="{ record }">{{ record.userName ?? '匿名用户' }}</template>
-        </a-table-column>
-        <a-table-column title="权限">
-          <template #cell="{ record }">
-            <a-tag color="#00b42a">{{ record.userRole }}</a-tag>
-          </template>
-        </a-table-column>
-        <a-table-column title="头像">
-          <template #cell="{ record }">
-            <a-image :src="record.userAvatar" width="50" />
-          </template>
-        </a-table-column>
-        <a-table-column title="创建时间">
-          <template #cell="{ record }">{{ formatDate(record.createTime) }}</template>
-        </a-table-column>
-        <a-table-column title="操作" :width="150">
-          <template #cell="{ record }">
-            <a-button class="mr-1.5" type="primary" size="mini">编辑</a-button>
-            <a-button status="danger" size="mini" @click="handleDelete(record.id)">删除</a-button>
-          </template>
-        </a-table-column>
+      <template #userName="{ record }">{{ record.userName ?? '匿名用户' }}</template>
+      <template #userRole="{ record }"
+        ><a-tag color="#00b42a">{{ record.userRole }}</a-tag></template
+      >
+      <template #userAvatar="{ record }"><a-image :src="record.userAvatar" width="50" /></template>
+      <template #createTime="{ record }">{{ formatDate(record.createTime) }}</template>
+      <template #operation="{ record }">
+        <a-button class="mr-1.5" type="primary" size="mini">编辑</a-button>
+        <a-button status="danger" size="mini" @click="handleDelete(record.id)">删除</a-button>
       </template>
-    </a-table>
+    </common-table>
   </div>
 </template>
 
