@@ -249,7 +249,7 @@ declare namespace API {
 
   type getUserAnswerVOByIdUsingGETParams = {
     /** id */
-    id?: number
+    id?: string
   }
 
   type getUserByIdUsingGETParams = {
@@ -697,7 +697,7 @@ declare namespace API {
   }
 
   type UserAnswerAddRequest = {
-    appId?: number
+    appId?: string
     choices?: string[]
     id?: number
   }

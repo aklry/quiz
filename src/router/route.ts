@@ -62,6 +62,36 @@ export const routes: Array<RouteRecordRaw> = [
         }
       },
       {
+        path: '/answer/doAnswer/:appId',
+        name: 'DoAnswer',
+        component: () => import('@/views/answer/do-answer.vue'),
+        props: true,
+        meta: {
+          isMenu: false,
+          auth: AUTH_ENUM.USER
+        }
+      },
+      {
+        path: '/answer/answerResult/:id',
+        name: 'AnswerResult',
+        component: () => import('@/views/answer/answer-result.vue'),
+        props: true,
+        meta: {
+          isMenu: false,
+          auth: AUTH_ENUM.USER
+        }
+      },
+      {
+        path: '/answer/myAnswer',
+        name: 'MyAnswer',
+        component: () => import('@/views/answer/my-answer.vue'),
+        meta: {
+          isMenu: true,
+          title: '我的答题',
+          auth: AUTH_ENUM.USER
+        }
+      },
+      {
         path: '/admin/user',
         component: () => import('@/views/admin/user/index.vue'),
         name: 'AdminUser',

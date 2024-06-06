@@ -32,6 +32,10 @@ const handleSetQuestion = () => {
 const handleSetScore = () => {
   router.push({ name: 'AddScoringResult', params: { appId: props.appId } })
 }
+// 跳转到答题页面
+const handleDoAnswer = () => {
+  router.push({ name: 'DoAnswer', params: { appId: props.appId } })
+}
 </script>
 
 <template>
@@ -59,7 +63,7 @@ const handleSetScore = () => {
           </p>
           <p class="mb-3">创建时间:{{ formatDate(detail.createTime as string) }}</p>
           <a-space>
-            <a-button type="primary">开始答题</a-button>
+            <a-button type="primary" @click="handleDoAnswer">开始答题</a-button>
             <a-button>分享应用</a-button>
             <a-button v-if="isMyApp" @click="handleSetQuestion">设置题目</a-button>
             <a-button v-if="isMyApp" @click="handleSetScore">设置评分</a-button>
