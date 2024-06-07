@@ -100,6 +100,46 @@ export const routes: Array<RouteRecordRaw> = [
           isMenu: true,
           auth: AUTH_ENUM.ADMIN
         }
+      },
+      {
+        path: '/admin/app',
+        component: () => import('@/views/admin/app/index.vue'),
+        name: 'AdminApp',
+        meta: {
+          title: '应用管理',
+          isMenu: true,
+          auth: AUTH_ENUM.ADMIN
+        }
+      },
+      {
+        path: '/admin/question',
+        component: () => import('@/views/admin/question/index.vue'),
+        name: 'AdminQuestion',
+        meta: {
+          title: '题目管理',
+          isMenu: true,
+          auth: AUTH_ENUM.ADMIN
+        }
+      },
+      {
+        path: '/admin/scoringResult',
+        component: () => import('@/views/admin/scoring-result/index.vue'),
+        name: 'AdminScoringResult',
+        meta: {
+          title: '评分结果管理',
+          isMenu: true,
+          auth: AUTH_ENUM.ADMIN
+        }
+      },
+      {
+        path: '/admin/userAnswer',
+        component: () => import('@/views/admin/user-answer/index.vue'),
+        name: 'AdminUserAnswer',
+        meta: {
+          title: '回答管理',
+          isMenu: true,
+          auth: AUTH_ENUM.ADMIN
+        }
       }
     ]
   },

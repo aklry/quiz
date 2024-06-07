@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import { listMyUserAnswerVoByPageUsingPost, deleteUserAnswerUsingPost } from '@/api/userAnswerController'
+import {
+  listMyUserAnswerVoByPageUsingPost,
+  deleteUserAnswerUsingPost
+} from '@/api/userAnswerController'
 import columns from './config'
 import { formatDate } from '@/utils'
 import { APP_TYPE, SCORING_STRATEGY } from '@/constants'
-import { Message } from '@arco-design/web-vue';
+import { Message } from '@arco-design/web-vue'
 
 const initSearchParams = {
   current: 1,
@@ -75,16 +78,18 @@ watchEffect(() => {
         {{ formatDate(record.createTime) }}
       </template>
       <template #operation="{ record }">
-        <a-button
-          type="primary"
-          size="mini"
-          class="mr-2"
-          :href="`/answer/answerResult/${record.id}`"
-          >查看结果</a-button
-        >
-        <a-popconfirm content="确认删除吗？" position="bottom" @ok="handleDelete(record.id)">
-          <a-button status="danger" type="primary" size="mini">删除</a-button>
-        </a-popconfirm>
+        <a-space>
+          <a-button
+            type="primary"
+            size="mini"
+            class="mr-2"
+            :href="`/answer/answerResult/${record.id}`"
+            >查看结果</a-button
+          >
+          <a-popconfirm content="确认删除吗？" position="bottom" @ok="handleDelete(record.id)">
+            <a-button status="danger" type="primary" size="mini">删除</a-button>
+          </a-popconfirm>
+        </a-space>
       </template>
     </common-table>
   </div>

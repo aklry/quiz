@@ -28,7 +28,12 @@ const onChange = (current: number) => {
             </a-table-column>
           </template>
           <template v-else>
-            <a-table-column :title="item.title as string" :data-index="item.dataIndex" />
+            <a-table-column
+              :title="item.title as string"
+              :data-index="item.dataIndex"
+              :ellipsis="true"
+              :tooltip="true"
+            />
           </template>
         </template>
       </template>

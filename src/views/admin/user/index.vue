@@ -31,7 +31,7 @@ const handlePageChange = (page: number) => {
   }
 }
 // 删除用户
-const handleDelete = async (id: number) => {
+const handleDelete = async (id: string) => {
   const res = await deleteUserUsingPost({ id })
   if (res.code === 0) {
     Message.success('删除用户成功')

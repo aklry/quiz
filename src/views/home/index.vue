@@ -15,7 +15,7 @@ const fetchAppData = async () => {
   const res = await listAppVoByPageUsingPost(paginationProps.value)
   if (res.code === 0) {
     if (res.data?.records) {
-      dataSource.value = res.data.records || []
+      dataSource.value = res.data.records.filter((item) => item.reviewStatus === 1) || []
     }
     if (res.data?.total) {
       total.value = parseInt(res.data.total) || 0
