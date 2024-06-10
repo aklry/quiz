@@ -25,7 +25,7 @@ onMounted(async () => {
             <span class="font-bold">结果描述: </span>{{ answer?.resultDesc }}
           </p>
           <p class="mb-3 mt-1.5"><span class="font-bold">结果id: </span>{{ answer?.id }}</p>
-          <p class="mb-3 mt-1.5">
+          <p class="mb-3 mt-1.5" v-if="answer?.resultScore">
             <span class="font-bold">结果得分: </span>{{ answer?.resultScore }}
           </p>
           <p class="mb-3 mt-1.5"><span class="font-bold">我的答案: </span>{{ answer?.choices }}</p>
@@ -52,7 +52,8 @@ onMounted(async () => {
             <span class="font-bold">答题时间: </span>{{ formatDate(answer?.createTime as string) }}
           </p>
           <p class="mt-1.5">
-            <a-link class="text-base" :href="`/answer/doAnswer/${answer?.appId}`">去答题</a-link>
+            <a-button type="outline" class="ml-2" @click="$router.replace('/')">回主页</a-button>
+            <a-button type="outline" class="ml-2" :href="`/answer/doAnswer/${answer?.appId}`">重新答题</a-button>
           </p>
         </a-col>
         <a-col flex="300px">

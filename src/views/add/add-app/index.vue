@@ -81,7 +81,7 @@ const handleAddOrEditApp = async () => {
         <a-form-item label="评分策略">
           <a-select v-model="appForm.scoringStrategy">
             <a-option :value="0" label="自定义" />
-            <a-option :value="1" label="AI" />
+            <a-option :value="1" label="AI" v-if="appForm.appType === 1" />
           </a-select>
         </a-form-item>
         <a-form-item>

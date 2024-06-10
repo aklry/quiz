@@ -129,3 +129,18 @@ export async function updateQuestionUsingPost(
     ...(options || {})
   })
 }
+
+export async function aiGenerateQuestion(
+  body: API.AIGenerateQuestionRequest,
+  options?: { [key: string]: any }
+) {
+  return ryRequest.request<API.BaseResponseQuestionContentDto_>({
+    method: 'POST',
+    url: '/question/ai_generate',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    data: body,
+    ...(options || {})
+  })
+}

@@ -31,7 +31,7 @@ export const routes: Array<RouteRecordRaw> = [
       {
         path: '/add/app',
         name: 'AddApp',
-        component: () => import('@/views/add-app/index.vue'),
+        component: () => import('@/views/add/add-app/index.vue'),
         meta: {
           isMenu: true,
           title: '创建应用'
@@ -40,13 +40,13 @@ export const routes: Array<RouteRecordRaw> = [
       {
         path: '/add/app/:appId',
         name: 'EditApp',
-        component: () => import('@/views/add-app/index.vue'),
+        component: () => import('@/views/add/add-app/index.vue'),
         props: true
       },
       {
         path: '/add/question/:appId',
         name: 'AddQuestion',
-        component: () => import('@/views/add-question/index.vue'),
+        component: () => import('@/views/add/add-question/index.vue'),
         props: true,
         meta: {
           isMenu: false
@@ -55,7 +55,7 @@ export const routes: Array<RouteRecordRaw> = [
       {
         path: '/add/scoring-result/:appId',
         name: 'AddScoringResult',
-        component: () => import('@/views/add-scoring-result/index.vue'),
+        component: () => import('@/views/add/add-scoring-result/index.vue'),
         props: true,
         meta: {
           isMenu: false

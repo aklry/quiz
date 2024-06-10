@@ -45,7 +45,7 @@ watchEffect(() => {
       <a-input-search
         :style="{ width: '320px' }"
         placeholder="快速搜索应用"
-        button-text="Search"
+        button-text="搜索应用"
         search-button
         @search="handleSearch"
       />

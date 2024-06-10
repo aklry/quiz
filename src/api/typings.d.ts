@@ -193,6 +193,12 @@ declare namespace API {
     message?: string
   }
 
+  type BaseResponseQuestionContentDto_ = {
+    code?: number
+    data?: QuestionContentDto
+    message?: string
+  }
+
   type BaseResponseScoringResultVO_ = {
     code?: number
     data?: ScoringResultVO
@@ -532,6 +538,12 @@ declare namespace API {
   type QuestionContentDto = {
     options?: Result[]
     title?: string
+  }
+
+  type AIGenerateQuestionRequest = {
+    appId?: string
+    questionNumber: number
+    optionNumber: number
   }
 
   type QuestionEditRequest = {

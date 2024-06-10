@@ -5,6 +5,7 @@ import {
   updateQuestionUsingPost
 } from '@/api/questionController'
 import { Message } from '@arco-design/web-vue'
+import Drawer from '../components/drawer.vue'
 
 const props = withDefaults(defineProps<{ appId: string }>(), {
   appId: ''
@@ -42,7 +43,7 @@ const handleDeleteQuestionOption = (question: API.QuestionContentDto, index: num
 }
 // 提交表单
 const handleSubmit = async () => {
-  let res: API.BaseResponseLong_ | API.BaseResponseBoolean_
+  let res: API.BaseResponseLong_ | API.BaseResponseBoolean_ | null = null
   if (!props.appId) {
     return
   } else if (!oldQuestionContent.value) {
@@ -58,7 +59,7 @@ const handleSubmit = async () => {
       })
     }
   }
-  if (res.code === 0) {
+  if (res?.code === 0) {
     Message.success('操作成功, 即将跳转到应用详情页')
     setTimeout(() => {
       router.push({ name: 'AppDetail', params: { appId: props.appId } })
@@ -91,7 +92,10 @@ onMounted(async () => {
     <a-form :model="questionContent" auto-label-width @submit="handleSubmit">
       <a-form-item label="应用ID">{{ appId }}</a-form-item>
       <a-form-item label="题目列表" :content-flex="false" :merge-props="false">
-        <a-button @click="handleAddQuestion(questionContent.length)">底部添加题目</a-button>
+        <a-space>
+          <a-button @click="handleAddQuestion(questionContent.length)">底部添加题目</a-button>
+          <drawer :app-id="appId" @set-question-content="questionContent = $event" />
+        </a-space>
         <div v-for="(item, index) in questionContent" :key="index">
           <a-space size="large" class="mt-2">
             <h3 class="font-bold text-lg">题目{{ index + 1 }}</h3>
@@ -157,6 +161,8 @@ onMounted(async () => {
             </a-space>
           </a-form-item>
         </div>
+      </a-form-item>
+      <a-form-item>
         <a-button type="primary" html-type="submit">提交</a-button>
       </a-form-item>
     </a-form>

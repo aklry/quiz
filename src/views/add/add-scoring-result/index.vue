@@ -156,12 +156,14 @@ watchEffect(() => {
         <a-image :src="record.resultPicture || image" :width="50" :height="50" class="circle" />
       </template>
       <template #operation="{ record }">
-        <a-button size="mini" type="primary" class="mr-2" @click="handleEdit(record)">
-          修改
-        </a-button>
-        <a-popconfirm content="确定要删除吗?" @ok="handleDelete(record)">
-          <a-button status="danger" size="mini" type="primary">删除</a-button>
-        </a-popconfirm>
+        <a-space>
+          <a-button size="mini" type="primary" class="mr-2" @click="handleEdit(record)">
+            修改
+          </a-button>
+          <a-popconfirm content="确定要删除吗?" @ok="handleDelete(record)">
+            <a-button status="danger" size="mini" type="primary">删除</a-button>
+          </a-popconfirm>
+        </a-space>
       </template>
     </common-table>
   </div>

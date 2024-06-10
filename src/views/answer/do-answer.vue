@@ -9,6 +9,7 @@ const router = useRouter()
 const app = ref<API.AppVO>({})
 const props = withDefaults(defineProps<{ appId: string }>(), { appId: '' })
 const questionContent = ref<API.QuestionContentDto[]>([])
+const submitting = ref(false)
 const fetchData = async () => {
   let res: API.BaseResponseAppVO_ | API.BaseResponsePageQuestionVO_
   try {
@@ -72,16 +73,18 @@ const handleRadioChange = (value: string | number | boolean) => {
 }
 // 提交答案
 const doSubmit = async () => {
+  submitting.value = true
   const res = await addUserAnswerUsingPost({
     appId: props.appId,
     choices: finalResult.value
   })
   if (res.code === 0) {
     Message.success('提交成功')
-    router.push({ name: 'AnswerResult', params: { id: res.data } })
+    await router.push({ name: 'AnswerResult', params: { id: res.data } })
   } else {
-    Message.error('提交失败')
+    Message.error('提交失败,' + res.message)
   }
+  submitting.value = false
 }
 watchPostEffect(() => {
   currentAnswer.value = finalResult.value[currentQuestionIndex.value]
@@ -92,8 +95,8 @@ onMounted(() => {
 })
 </script>
 <template>
-  <div class="do-answer-container">
-    <h1 class="font-bold text-lg">{{ currentQuestion?.title }}</h1>
+  <div class="do-answer-container m-[20px]">
+    <h1 class="font-bold text-xl mb-4">{{ currentQuestion?.title }}</h1>
     <a-radio-group
       v-model="currentAnswer"
       :options="questionOptions"
@@ -113,7 +116,7 @@ onMounted(() => {
         <a-button
           size="small"
           type="primary"
-          :disabled="currentQuestionIndex === questionContent.length - 1 || currentAnswer === ''"
+          :disabled="currentQuestionIndex === questionContent.length - 1 || !currentAnswer"
           @click="currentQuestionIndex++"
         >
           下一题
@@ -122,7 +125,8 @@ onMounted(() => {
           size="small"
           type="primary"
           status="danger"
-          :disabled="currentQuestionIndex !== questionContent.length - 1"
+          v-if="currentQuestionIndex === questionContent.length - 1"
+          :loading="submitting"
           @click="doSubmit"
         >
           查看结果
