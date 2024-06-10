@@ -79,7 +79,9 @@ watchEffect(() => {
       <template #userRole="{ record }"
         ><a-tag color="#00b42a">{{ record.userRole }}</a-tag></template
       >
-      <template #userAvatar="{ record }"><a-image :src="record.userAvatar" width="50" /></template>
+      <template #userAvatar="{ record }"
+        ><a-image :src="record.userAvatar" width="50" height="50" class="rounded-[50%]"
+      /></template>
       <template #createTime="{ record }">{{ formatDate(record.createTime) }}</template>
       <template #operation="{ record }">
         <a-button class="mr-1.5" type="primary" size="mini">编辑</a-button>

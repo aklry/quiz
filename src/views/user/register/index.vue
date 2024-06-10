@@ -6,7 +6,8 @@ const router = useRouter()
 const registerForm = reactive<API.UserRegisterRequest>({
   userAccount: '',
   userPassword: '',
-  checkPassword: ''
+  checkPassword: '',
+  userAvatar: ''
 })
 const handleRegister = async () => {
   try {
@@ -32,6 +33,13 @@ const handleRegister = async () => {
       <a-form :model="registerForm" @submit="handleRegister">
         <a-form-item label="账户">
           <a-input v-model="registerForm.userAccount" />
+        </a-form-item>
+        <a-form-item label="头像">
+          <picture-upload
+            biz="user_avatar"
+            :value="registerForm.userAvatar"
+            :on-change="(url) => (registerForm.userAvatar = url)"
+          />
         </a-form-item>
         <a-form-item label="密码">
           <a-input-password v-model="registerForm.userPassword" />

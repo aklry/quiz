@@ -784,6 +784,7 @@ declare namespace API {
     checkPassword?: string
     userAccount?: string
     userPassword?: string
+    userAvatar?: string
   }
 
   type UserUpdateMyRequest = {

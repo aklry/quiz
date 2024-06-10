@@ -45,9 +45,7 @@ const handleLogin = async () => {
           <a-input-password v-model="loginForm.userPassword" />
         </a-form-item>
         <div class="text-right mb-2.5">
-          <a-link href="/user/register" @click.prevent="() => router.push('/user/register')"
-            >没有账号？注册</a-link
-          >
+          <a-link @click.prevent="() => router.replace('/user/register')">没有账号？注册</a-link>
         </div>
         <a-form-item>
           <a-button type="primary" html-type="submit">登录</a-button>

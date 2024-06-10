@@ -53,7 +53,9 @@ onMounted(async () => {
           </p>
           <p class="mt-1.5">
             <a-button type="outline" class="ml-2" @click="$router.replace('/')">回主页</a-button>
-            <a-button type="outline" class="ml-2" :href="`/answer/doAnswer/${answer?.appId}`">重新答题</a-button>
+            <a-button type="outline" class="ml-2" :href="`/answer/doAnswer/${answer?.appId}`"
+              >重新答题</a-button
+            >
           </p>
         </a-col>
         <a-col flex="300px">
