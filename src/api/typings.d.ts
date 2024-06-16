@@ -265,7 +265,7 @@ declare namespace API {
 
   type getUserVOByIdUsingGETParams = {
     /** id */
-    id?: number
+    id?: string
   }
 
   type LoginUserVO = {
@@ -791,10 +791,11 @@ declare namespace API {
     userAvatar?: string
     userName?: string
     userProfile?: string
+    userPassword?: string
   }
 
   type UserUpdateRequest = {
-    id?: number
+    id?: string
     userAvatar?: string
     userName?: string
     userProfile?: string
@@ -803,7 +804,7 @@ declare namespace API {
 
   type UserVO = {
     createTime?: string
-    id?: number
+    id?: string
     userAvatar?: string
     userName?: string
     userProfile?: string

@@ -30,6 +30,10 @@ const handleLogout = () => {
             <icon-down />
           </a-button>
           <template #content>
+            <a-doption
+              @click="router.push({ name: 'Center', params: { userId: userStore.user?.id } })"
+              >个人中心</a-doption
+            >
             <a-doption @click="handleLogout">退出登录</a-doption>
           </template>
         </a-dropdown>

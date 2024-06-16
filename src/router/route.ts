@@ -20,6 +20,16 @@ export const routes: Array<RouteRecordRaw> = [
         }
       },
       {
+        path: '/user/center/:userId',
+        name: 'Center',
+        component: () => import('@/views/user/center/index.vue'),
+        props: true,
+        meta: {
+          auth: AUTH_ENUM.LOGIN,
+          isMenu: false
+        }
+      },
+      {
         path: '/app/detail/:appId',
         name: 'AppDetail',
         component: () => import('@/views/app-detail/index.vue'),

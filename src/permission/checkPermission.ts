@@ -15,6 +15,10 @@ export const checkAuth = (
     return true
   }
 
+  if (auth === AUTH_ENUM.LOGIN) {
+    return true
+  }
+
   if (auth === AUTH_ENUM.USER) {
     if (loginUserAuth === AUTH_ENUM.NOT_LOGIN) {
       return false
