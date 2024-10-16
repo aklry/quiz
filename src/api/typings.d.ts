@@ -617,7 +617,7 @@ declare namespace API {
   }
 
   type ScoringResultEditRequest = {
-    id?: number
+    id?: string
     resultDesc?: string
     resultName?: string
     resultPicture?: string

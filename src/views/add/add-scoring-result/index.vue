@@ -3,7 +3,8 @@ import {
   listScoringResultVoByPageUsingPost,
   updateScoringResultUsingPost,
   addScoringResultUsingPost,
-  deleteScoringResultUsingPost
+  deleteScoringResultUsingPost,
+  editScoringResultUsingPost
 } from '@/api/scoringResultController'
 import { Message } from '@arco-design/web-vue'
 import type { IFormParams } from './type'
@@ -72,7 +73,7 @@ const handleSubmit = async () => {
   let res: API.BaseResponseBoolean_ | API.BaseResponseLong_
   if (updateId.value) {
     // 修改评分
-    res = await updateScoringResultUsingPost({
+    res = await editScoringResultUsingPost({
       id: updateId.value,
       ...form
     })
